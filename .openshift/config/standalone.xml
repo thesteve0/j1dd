@@ -32,6 +32,9 @@
 		<extension module="org.jboss.as.web" />
 		<extension module="org.jboss.as.webservices" />
 		<extension module="org.jboss.as.weld" />
+		
+		<!--added by Steve p to enable keycloak -->
+		<extension module="org.keycloak.keycloak-adapter-subsystem"/>
 
 		<!-- OpenShift metrics module - disabled by default -->
 		<!--
@@ -55,6 +58,10 @@
 	</management>
 
 	<profile>
+	
+		<!-- added by Steve P for keycloak -->
+		<subsystem xmlns="urn:jboss:domain:keycloak:1.1"/>
+		
 		<subsystem xmlns="urn:jboss:domain:logging:1.3">
 			<console-handler name="CONSOLE">
 				<level name="INFO"/>
