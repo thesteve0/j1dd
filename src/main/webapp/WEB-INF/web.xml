@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
          <module-name>ddservice</module-name>
-<!--
+
          <servlet>
                   <servlet-name>health</servlet-name>
                   <jsp-file>/health.jsp</jsp-file>
@@ -19,7 +19,7 @@
             <servlet-name>javax.ws.rs.core.Application</servlet-name>
             <url-pattern>/ws/*</url-pattern>
         </servlet-mapping>
-        
+<!--        
         <security-constraint>
 		    <web-resource-collection>
 		        <url-pattern>/ws/*</url-pattern>
@@ -28,14 +28,15 @@
 		        <role-name>player</role-name>
 		    </auth-constraint>
 		</security-constraint>
--->
-		<login-config>
+    	<login-config>
 		    <auth-method>keycloak</auth-method>
 		</login-config>
 
 		<security-role>
 		    <role-name>player</role-name>
 		</security-role>
+-->
+	
 
          
 </web-app>
