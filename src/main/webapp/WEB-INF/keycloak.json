@@ -7,5 +7,5 @@
   "credentials": {
     "secret": "d25abfe4-129e-41c1-a122-bab93cc93e64"
   },
-  "use-resource-role-mappings": true
+  "use-resource-role-mappings": false
 }
