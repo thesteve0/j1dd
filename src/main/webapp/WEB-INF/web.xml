@@ -34,7 +34,7 @@
 		</login-config>
 
 		<security-role>
-		    <role-name>user</role-name>
+		    <role-name>player</role-name>
 		</security-role>
 
          
