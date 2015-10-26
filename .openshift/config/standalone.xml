@@ -458,6 +458,12 @@
 		<subsystem xmlns="urn:jboss:domain:sar:1.0" />
 		<subsystem xmlns="urn:jboss:domain:security:1.2">
             <security-domains>
+		        <security-domain name="keycloak">
+				 <authentication>
+				   <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule"
+				                 flag="required"/>
+				  </authentication>
+			  </security-domain>
                 <security-domain name="other" cache-type="default">
                     <authentication>
                         <login-module code="Remoting" flag="optional">
