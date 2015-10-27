@@ -70,6 +70,7 @@ public class Generator {
         String token = mySecurityContext.getTokenString();
 
         //build the POST
+        System.out.println("About to Post");
 
         HttpClient client = new DefaultHttpClient();
         try {
