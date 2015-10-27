@@ -11,6 +11,8 @@ import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.util.JsonSerialization;
 import org.openshift.model.*;
 import org.openshift.model.Character;
+import sun.misc.IOUtils;
+import sun.nio.ch.IOUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
@@ -53,7 +55,7 @@ public class Generator {
     @GET()
     @Produces("application/json")
     @Path("dd")
-    public InputStream MakeACharacterForMongo(@Context HttpServletRequest request) throws Exception{
+    public String MakeACharacterForMongo(@Context HttpServletRequest request) throws Exception{
 
         ///get the userid from keycloak here and use it for the name
         String name = securityContext.getUserPrincipal().getName();
@@ -83,7 +85,7 @@ public class Generator {
                 HttpEntity entity = response.getEntity();
                 InputStream is = entity.getContent();
                 try {
-                    return is;
+                    return org.apache.commons.io.IOUtils.toString(is);
                 } finally {
                     is.close();
                 }
