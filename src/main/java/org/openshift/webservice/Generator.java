@@ -4,6 +4,7 @@ import org.keycloak.KeycloakSecurityContext;
 import org.openshift.model.*;
 import org.openshift.model.Character;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.Context;
@@ -42,7 +43,8 @@ public class Generator {
     @GET()
     @Produces("text/json")
     @Path("dd")
-    public HashMap MakeACharacterForMongo(){
+
+    public HashMap MakeACharacterForMongo(@Context HttpServletRequest request){
 
         ///get the userid from keycloak here and use it for the name
         String name = securityContext.getUserPrincipal().getName();
@@ -53,7 +55,7 @@ public class Generator {
 
         //now send the character on to the Mongo Service
         //Get the token
-        KeycloakSecurityContext mySecurityContext = (KeycloakSecurityContext) securityContext;
+        KeycloakSecurityContext mySecurityContext = (KeycloakSecurityContext)request.getAttribute(KeycloakSecurityContext.class.getName());
         String token = mySecurityContext.getTokenString();
 
         //build the POST
