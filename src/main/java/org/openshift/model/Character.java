@@ -29,7 +29,7 @@ public class Character {
         setAttributes(allAttributes);
         addRaceOrClass("race", races, allAttributes);
         addRaceOrClass("playerclass", playerClass, allAttributes);
-        allAttributes.put("Name", name);
+        allAttributes.put("name", name);
 
     }
 
