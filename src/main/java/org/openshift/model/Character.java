@@ -17,9 +17,6 @@ public class Character {
     private final int MAX_GOLD = 200;
     private final int MAX_HIT = 9;
 
-    //TODO still need some random ID for the character
-    //TODO give a method where if a name is passed in we give it a name
-
     public Character(){
 
         this(UUID.randomUUID().toString());
@@ -27,8 +24,8 @@ public class Character {
     }
 
     public Character(String name) {
-        allAttributes.put("Hit Points", rand.nextInt(MAX_HIT) + 1);
-        allAttributes.put("Gold Pieces", rand.nextInt(MAX_GOLD) + 5);
+        allAttributes.put("HitPoints", rand.nextInt(MAX_HIT) + 1);
+        allAttributes.put("GoldPieces", rand.nextInt(MAX_GOLD) + 5);
         setAttributes(allAttributes);
         addRaceOrClass("Race", races, allAttributes);
         addRaceOrClass("Class", playerClass, allAttributes);

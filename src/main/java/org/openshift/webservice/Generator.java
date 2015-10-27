@@ -4,6 +4,8 @@ import org.openshift.model.*;
 import org.openshift.model.Character;
 
 import javax.ws.rs.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import java.util.HashMap;
 
 /**
@@ -27,6 +29,27 @@ public class Generator {
     public HashMap MakeACharacterWithAName(@PathParam("name") String name){
 
         character.setName(name);
+        return character.getAllAttributes();
+
+    }
+
+    @GET()
+    @Produces("text/json")
+    @Path("dd")
+    public HashMap MakeACharacterForMongo(){
+
+        //TODO get the userid from keycloak here and use it for the name
+        String name = "paloma";
+        character.setName(name);
+        //TODO now send the character on to the Mongo Service
+        Client requester = ClientBuilder.newClient();
+
+        /*
+
+        https://jax-rs-spec.java.net/nonav/2.0-SNAPSHOT/apidocs/javax/ws/rs/client/Client.html
+        https://jax-rs-spec.java.net/nonav/2.0-SNAPSHOT/apidocs/javax/ws/rs/client/WebTarget.html
+        https://jax-rs-spec.java.net/nonav/2.0-SNAPSHOT/apidocs/javax/ws/rs/client/Invocation.Builder.html
+         */
         return character.getAllAttributes();
 
     }
