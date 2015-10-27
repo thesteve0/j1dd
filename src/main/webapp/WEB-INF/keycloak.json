@@ -8,7 +8,5 @@
     "secret": "d25abfe4-129e-41c1-a122-bab93cc93e64"
   },
   "use-resource-role-mappings": false,
-  "enable-cors" : true,
-  "cors-max-age" : 1000,
-  "cors-allowed-methods" : "GET"
+  "enable-cors" : true
 }
