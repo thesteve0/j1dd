@@ -28,7 +28,7 @@ public class Character {
         allAttributes.put("GoldPieces", rand.nextInt(MAX_GOLD) + 5);
         setAttributes(allAttributes);
         addRaceOrClass("Race", races, allAttributes);
-        addRaceOrClass("Class", playerClass, allAttributes);
+        addRaceOrClass("PlayerClass", playerClass, allAttributes);
         allAttributes.put("Name", name);
 
     }
