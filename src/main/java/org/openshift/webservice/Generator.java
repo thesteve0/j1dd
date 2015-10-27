@@ -47,7 +47,7 @@ public class Generator {
         String name = securityContext.getUserPrincipal().getName();
         character.setName(name);
         //TODO now send the character on to the Mongo Service
-        Client requester = ClientBuilder.newClient();
+        //Client requester = ClientBuilder.newClient();
 
         /*
 
