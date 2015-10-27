@@ -52,7 +52,7 @@ public class Character {
     }
 
     public void setName(String name){
-        allAttributes.put("Name", name);
+        allAttributes.put("name", name);
     }
 
     @Override
