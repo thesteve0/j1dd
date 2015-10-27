@@ -8,8 +8,8 @@ import static java.util.Arrays.asList;
  */
 public class Character {
     Random rand = new Random();
-    private int  hitPoints, goldPieces;
-    private final HashSet<String> attributeNames =  new HashSet<String>(asList("Strength", "Intelligence", "Charisma", "Wisdom", "Dexterity", "Constitution"));
+    private int  hitpoints, goldpieces;
+    private final HashSet<String> attributeNames =  new HashSet<String>(asList("strength", "intelligence", "charisma", "wisdom", "dexterity", "constitution"));
     private List<String> races =  asList( "Human", "Dwarf", "Halfling", "Elf", "Gnome", "Half-Elf", "Half-Orc", "Nerd");
     private List<String> playerClass =  asList("Warrior", "Ranger", "Paladin", "Cleric", "Monk", "Wizard", "Thief", "Assassin", "Druid", "Wizard", "Coder");
     private HashMap allAttributes = new HashMap(18);
@@ -24,11 +24,11 @@ public class Character {
     }
 
     public Character(String name) {
-        allAttributes.put("HitPoints", rand.nextInt(MAX_HIT) + 1);
-        allAttributes.put("GoldPieces", rand.nextInt(MAX_GOLD) + 5);
+        allAttributes.put("hitpoints", rand.nextInt(MAX_HIT) + 1);
+        allAttributes.put("goldpieces", rand.nextInt(MAX_GOLD) + 5);
         setAttributes(allAttributes);
-        addRaceOrClass("Race", races, allAttributes);
-        addRaceOrClass("PlayerClass", playerClass, allAttributes);
+        addRaceOrClass("race", races, allAttributes);
+        addRaceOrClass("playerclass", playerClass, allAttributes);
         allAttributes.put("Name", name);
 
     }
@@ -62,8 +62,8 @@ public class Character {
 
         Character character = (Character) o;
 
-        if (goldPieces != character.goldPieces) return false;
-        if (hitPoints != character.hitPoints) return false;
+        if (goldpieces != character.goldpieces) return false;
+        if (hitpoints != character.hitpoints) return false;
         if (allAttributes != null ? !allAttributes.equals(character.allAttributes) : character.allAttributes != null)
             return false;
         if (attributeNames != null ? !attributeNames.equals(character.attributeNames) : character.attributeNames != null)
@@ -80,8 +80,8 @@ public class Character {
     @Override
     public int hashCode() {
         int result = rand != null ? rand.hashCode() : 0;
-        result = 31 * result + hitPoints;
-        result = 31 * result + goldPieces;
+        result = 31 * result + hitpoints;
+        result = 31 * result + goldpieces;
         result = 31 * result + (allAttributes != null ? allAttributes.hashCode() : 0);
         result = 31 * rand.nextInt();
         return result;
