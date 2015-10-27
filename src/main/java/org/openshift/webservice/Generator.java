@@ -1,12 +1,13 @@
 package org.openshift.webservice;
 
+import org.keycloak.KeycloakSecurityContext;
 import org.openshift.model.*;
 import org.openshift.model.Character;
 
 import javax.ws.rs.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import java.util.HashMap;
 
@@ -43,11 +44,26 @@ public class Generator {
     @Path("dd")
     public HashMap MakeACharacterForMongo(){
 
-        //TODO get the userid from keycloak here and use it for the name
+        ///get the userid from keycloak here and use it for the name
         String name = securityContext.getUserPrincipal().getName();
         character.setName(name);
-        //TODO now send the character on to the Mongo Service
-        //Client requester = ClientBuilder.newClient();
+
+        // turn the character to JSON
+
+
+        //now send the character on to the Mongo Service
+        //Get the token
+        KeycloakSecurityContext mySecurityContext = (KeycloakSecurityContext) securityContext;
+        String token = mySecurityContext.getTokenString();
+
+        //build the POST
+        Client client = ClientBuilder.newClient();
+        WebTarget resourceTarget = client.target("https://j1mongo-thesteve0.rhcloud.com/ws/players");
+        Invocation.Builder invocationBuilder = resourceTarget.request("application/json").header("Authorization", "bearer " + token);
+        Invocation invocation = invocationBuilder.buildPost(Entity.json(character));
+        Response response = invocation.invoke();
+
+        System.out.println("response code: " + response.getStatus());
 
         /*
 
