@@ -3,7 +3,6 @@ package org.openshift.webservice;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -11,8 +10,6 @@ import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.util.JsonSerialization;
 import org.openshift.model.*;
 import org.openshift.model.Character;
-import sun.misc.IOUtils;
-import sun.nio.ch.IOUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
